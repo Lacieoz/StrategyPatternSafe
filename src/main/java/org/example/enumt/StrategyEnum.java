@@ -6,7 +6,7 @@ import org.example.beans.StrategyB;
 import org.example.beans.StrategyC;
 import org.springframework.context.ApplicationContext;
 
-public enum StrategyEnum<T> {
+public enum StrategyEnum {
     
     STRATEGY_A {
         @Override
