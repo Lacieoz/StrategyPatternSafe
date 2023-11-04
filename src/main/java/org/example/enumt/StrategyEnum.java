@@ -7,26 +7,25 @@ import org.example.beans.StrategyC;
 import org.springframework.context.ApplicationContext;
 
 public enum StrategyEnum {
-
-    STRATEGY_A () {
+    
+    STRATEGY_A {
         @Override
-        public Strategy getStrategy (ApplicationContext context) {
-            return context.getBean(StrategyA.class);
+        public <T> T getStrategy(ApplicationContext context, Class<T> type) {
+            return context.getBean(type);
         }
     },
-    STRATEGY_B () {
+    STRATEGY_B {
         @Override
-        public Strategy getStrategy (ApplicationContext context) {
-            return context.getBean(StrategyB.class);
+        public <T> T getStrategy(ApplicationContext context, Class<T> type) {
+            return context.getBean(type);
         }
     },
-    STRATEGY_C () {
+    STRATEGY_C {
         @Override
-        public Strategy getStrategy (ApplicationContext context) {
-            return context.getBean(StrategyC.class);
+        public <T> T getStrategy(ApplicationContext context, Class<T> type) {
+            return context.getBean(type);
         }
     };
-
-    public abstract Strategy getStrategy(ApplicationContext context);
-
+    
+    public abstract <T> T getStrategy(ApplicationContext context, Class<T> type);
 }
